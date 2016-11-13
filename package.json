@@ -5,10 +5,9 @@
   "main": "server.js",
   "scripts": {
     "clean": "rm -rf dist",
-    "copy:data": "cp -r ./data/ ./dist/data/",
     "build:server": "./node_modules/.bin/babel src -d dist",
     "build:browser": "webpack",
-    "prestart": "npm run clean && npm run build:server && npm run build:browser && npm run copy:data",
+    "prestart": "npm run clean && npm run build:server && npm run build:browser",
     "start": "node dist/server.js",
     "examples": "node examples-server.js"
   },

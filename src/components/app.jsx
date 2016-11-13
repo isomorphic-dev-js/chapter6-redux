@@ -7,7 +7,6 @@ import * as actionCreators from '../action-creators';
 import * as settingActionCreators from '../settings-action-creators';
 import classnames from 'classnames';
 
-const pollInterval = 5000;
 let intervalId;
 
 class App extends React.Component {
@@ -43,12 +42,14 @@ class App extends React.Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    if (intervalId) {
-      clearInterval(intervalId);
+    if (nextProps.refresh != this.props.refresh) {
+      if (intervalId) {
+        clearInterval(intervalId);
+      }
+      intervalId = setInterval(() => {
+        this.props.notificationActions.fetchNotifications();
+      }, nextProps.refresh * 1000);
     }
-    intervalId = setInterval(() => {
-      this.props.notificationActions.fetchNotifications();
-    }, nextProps.refresh * 1000);
   }
 
   render() {

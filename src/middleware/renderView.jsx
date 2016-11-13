@@ -16,7 +16,6 @@ export default function renderView(req, res, next) {
   store.dispatch(actions.fetchNotifications()).then(() => {
       let html;
       const dataToSerialize = store.getState();
-      console.log("data to serialize", dataToSerialize)
       // render main view
       try {
         html = ReactDOM.renderToString(

@@ -1,5 +1,4 @@
 import express from 'express';
-import fs from 'fs';
 import bodyParser from 'body-parser';
 import renderViewMiddleware from './middleware/renderView';
 
