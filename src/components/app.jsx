@@ -4,7 +4,7 @@ import { bindActionCreators } from 'redux';
 import CreateNotification from './create-notification';
 import Settings from './settings';
 import * as actionCreators from '../action-creators';
-import * as settingActionCreators from '../settings-action-creators';
+import * as settingsActionCreators from '../settings-action-creators';
 import classnames from 'classnames';
 
 let intervalId;
@@ -23,8 +23,8 @@ class App extends React.Component {
 
   getSystemNotifications(id) {
     let items = [];
-    if (this.props.notifications) {
-      this.props.notifications.forEach((item, index)=>{
+    if (this.props.all) {
+      this.props.all.forEach((item, index)=>{
         if (item.serviceId == id) {
           let classes = classnames("ui", "message", item.messageType);
           items.push(
@@ -77,10 +77,10 @@ class App extends React.Component {
 }
 
 function mapStateToProps(state) {
-  let { notifications } = state.notifications;
+  let { all } = state.notifications;
   let { refresh } = state.settings;
   return {
-    notifications,
+    all,
     refresh
   }
 }
@@ -88,7 +88,7 @@ function mapStateToProps(state) {
 function mapDispatchToProps(dispatch) {
   return {
     notificationActions: bindActionCreators(actionCreators, dispatch),
-    settingsActions: bindActionCreators(settingActionCreators, dispatch)
+    settingsActions: bindActionCreators(settingsActionCreators, dispatch)
   }
 }
 
