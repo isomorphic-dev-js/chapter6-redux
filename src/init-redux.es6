@@ -14,7 +14,7 @@ export default function (initialStore={}) {
     notifications,
     settings
   });
-  let middleware = [thunkMiddleware, loggerMiddleware()];
+  let middleware = [thunkMiddleware, loggerMiddleware];
   return compose(
     applyMiddleware(...middleware)
   )(createStore)(reducer, initialStore);
