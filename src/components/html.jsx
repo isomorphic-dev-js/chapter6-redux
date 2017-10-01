@@ -5,7 +5,7 @@ export default class HTML extends React.Component {
     return (
       <html>
         <head>
-          <title>Chapter 5 - Redux</title>
+          <title>Chapter 6 - Redux</title>
           <link rel="stylesheet"
                 href="https://cdn.jsdelivr.net/semantic-ui/2.2.2/semantic.min.css" />
         </head>
