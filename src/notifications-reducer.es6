@@ -11,15 +11,15 @@ export default function notifications(state = {}, action) {
       return {
         ...state,
         all: [
-          ...state.notifications.slice(0, action.index),
-          ...state.notifications.slice(action.index + 1)
+          ...state.all.slice(0, action.index),
+          ...state.all.slice(action.index + 1)
         ]
       }
     }
     case CREATE_NOTIFICATION: {
       return {
         ...state,
-        all: [...state.notifications, action.item]
+        all: [...state.all, action.item]
       }
     }
     default:
